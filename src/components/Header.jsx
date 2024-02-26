@@ -5,8 +5,8 @@ const Header = () => {
     return (
         <header className="flex flex-row bg-gray-100">
             <h1 className="flex-auto font-sans text-3xl text-cyan-950">{title}</h1>
-            <Logo image={{source:"/public/react-logo.png", alt:"React"}}/>
-            <Logo image={{source:"/public/vite-logo.svg", alt:"Vite"}}/>
+            <Logo image={{source:"/react-logo.png", alt:"React"}}/>
+            <Logo image={{source:"/vite-logo.svg", alt:"Vite"}}/>
         </header>
     )
 }
