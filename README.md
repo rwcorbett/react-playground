@@ -10,3 +10,9 @@ based on my [React Skeleton](https://github.com/rwcorbett/react-skeleton)
 `npm install -D tailwindcss postcss autoprefixer`
 
 `npx tailwindcss init -p`
+
+## TypeScript
+
+`npm install -D @types/react @types/react-dom`
+
+Vite already transpiles TS: [Vite docs](https://vitejs.dev/guide/features.html#typescript)
