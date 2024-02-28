@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-interface ListButton {
+interface SortButton {
     btnText: string;
     style?: React.CSSProperties;
     showList?: boolean;
@@ -17,15 +17,17 @@ const buttonStyle: React.CSSProperties = {
     borderRadius: '0.5rem'
 }
 
-const ButtonShowHide: FC<ListButton> = ({
-        btnText,
-        style = buttonStyle,
-        showList,
-        handleClick
-    }) => {
+const ButtonSort: FC<SortButton> = ({
+    btnText = "Sort",
+    style = buttonStyle,
+    showList,
+    handleClick
+}) => {
     return (
-        <button style={style} onClick={handleClick} >{showList ? btnText = "Hide List" : btnText = "Show List"}</button>
+        <>
+        { showList && <button style={style} onClick={handleClick} >{btnText}</button> }
+        </>
     )
 }
 
-export default ButtonShowHide;
+export default ButtonSort;
