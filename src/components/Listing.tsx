@@ -14,7 +14,7 @@ interface ThingsList {
     things: thing[];
 }
 
-// todo sort this list
+// TODO: sort this list
 const thingsList: ThingsList = {
     things: [
         { id: 8975, name: "tree" },
@@ -24,16 +24,16 @@ const thingsList: ThingsList = {
     ]
 };
 
-// todo move this to state
-let shouldShowList: boolean = true;
+// TODO: move this to state
+let showList: boolean = true;
 
-let willShowList = () => {
+let checkShowList = () => {
     const list = thingsList.things.map((thing) =>
         <li key={thing.id}>{thing.name}</li>
     );
-    let listShow;
-    if (shouldShowList) {
-        listShow = (
+    let listMsg;
+    if (showList) {
+        listMsg = (
             <>
                 <p>Here is your list:</p>
                 <ul className="list-decimal list-inside">
@@ -42,9 +42,9 @@ let willShowList = () => {
             </>
         )
     } else {
-        listShow = (<p> No list.</p>)
+        listMsg = (<p> No list.</p>)
     }
-    return listShow;
+    return listMsg;
 }
 
 // this does not use props, instead uses the object declared in this functional component
@@ -52,7 +52,7 @@ const Listing: FC<ThingsList> = () => {
 
     return (
         <>
-            { willShowList() }
+            { checkShowList() }
         </>
     );
 };
