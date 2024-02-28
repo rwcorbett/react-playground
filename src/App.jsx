@@ -5,7 +5,7 @@ import Listing from "./components/Listing";
 const App = () => {
   return (
     <>
-    <Header />
+    <Header title="Playground App" />
     <Listing />
     </>
   );
