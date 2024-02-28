@@ -1,0 +1,18 @@
+button {
+    &.btnDefault {
+        // TODO: colours to vars
+        background-color: blue;
+        padding: 0.5rem;
+        color: white;
+        border-radius: 0.5rem;
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+    &.is-showing {
+        background-color: red;
+    }
+    &.not-showing {
+        background-color: green;
+    }
+}

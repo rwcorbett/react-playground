@@ -16,3 +16,7 @@ based on my [React Skeleton](https://github.com/rwcorbett/react-skeleton)
 `npm install -D @types/react @types/react-dom`
 
 Vite already transpile TS: [Vite docs](https://vitejs.dev/guide/features.html#typescript)
+
+##  Sass
+
+`npm add -D sass`
