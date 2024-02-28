@@ -12,6 +12,7 @@ interface thing {
 
 interface ThingsList {
     things: thing[];
+    showList?: boolean;
 }
 
 // TODO: sort this list
@@ -24,10 +25,7 @@ const thingsList: ThingsList = {
     ]
 };
 
-// TODO: move this to state
-let showList: boolean = true;
-
-let checkShowList = () => {
+let checkShowList = (showList: boolean = false) => {
     const list = thingsList.things.map((thing) =>
         <li key={thing.id}>{thing.name}</li>
     );
@@ -35,7 +33,7 @@ let checkShowList = () => {
     if (showList) {
         listMsg = (
             <>
-                <p>Here is your list:</p>
+                <p>Here is a list:</p>
                 <ul className="list-decimal list-inside">
                     {list}
                 </ul>
@@ -48,11 +46,11 @@ let checkShowList = () => {
 }
 
 // this does not use props, instead uses the object declared in this functional component
-const Listing: FC<ThingsList> = () => {
+const Listing: FC<ThingsList> = ({ showList }) => {
 
     return (
         <>
-            { checkShowList() }
+            {checkShowList(showList)}
         </>
     );
 };

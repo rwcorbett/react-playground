@@ -3,6 +3,7 @@ import React, { FC } from "react";
 interface ListButton {
     btnText: string;
     style?: React.CSSProperties;
+    showList?: boolean;
     handleClick?: React.MouseEventHandler<HTMLButtonElement>;
     // DO NOT USE: handleClick?: any -- the correct event handler is shown above
 }
@@ -15,14 +16,15 @@ const buttonStyle: React.CSSProperties = {
     borderRadius: '0.5rem'
 }
 
-const ShowListButton: FC<ListButton> = ({
-        btnText = "Show List",
+const ButtonShowHide: FC<ListButton> = ({
+        btnText,
         style = buttonStyle,
+        showList,
         handleClick
     }) => {
     return (
-        <button style={style} onClick={handleClick} >{btnText}</button>
+        <button style={style} onClick={handleClick} >{showList ? btnText = "Hide List" : btnText = "Show List"}</button>
     )
 }
 
-export default ShowListButton;
+export default ButtonShowHide;
