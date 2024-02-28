@@ -11,7 +11,7 @@ interface ImageProps {
 // can shorthand this to `React.FC `
 const Logo: FunctionComponent<ImageProps> = ({sourceTxt,altTxt}: ImageProps) => {
     return (
-        <img className="h-9 p-1" src={sourceTxt} alt={altTxt} />
+        <img className="h-9 p-1" src={sourceTxt} alt={'Logo for ' + altTxt} />
     );
 }
 

@@ -24,17 +24,35 @@ const thingsList: ThingsList = {
     ]
 };
 
-// this does not use props, instead uses the object declared in this functional component
-const Listing: FC<ThingsList> = () => {
+// todo move this to state
+let shouldShowList: boolean = true;
+
+let willShowList = () => {
     const list = thingsList.things.map((thing) =>
         <li key={thing.id}>{thing.name}</li>
     );
+    let listShow;
+    if (shouldShowList) {
+        listShow = (
+            <>
+                <p>Here is your list:</p>
+                <ul className="list-decimal list-inside">
+                    {list}
+                </ul>
+            </>
+        )
+    } else {
+        listShow = (<p> No list.</p>)
+    }
+    return listShow;
+}
+
+// this does not use props, instead uses the object declared in this functional component
+const Listing: FC<ThingsList> = () => {
+
     return (
         <>
-        <p>Here is your list:</p>
-        <ul className="list-decimal list-inside">
-            {list}
-        </ul>
+            { willShowList() }
         </>
     );
 };
