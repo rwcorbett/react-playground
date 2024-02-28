@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 
+/* use a type? or an interface? see: https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example/#useful-table-for-types-vs-interfaces */
 // type thing = {
 //     name: string,
 //     id: number,
@@ -13,6 +14,7 @@ interface ThingsList {
     things: thing[];
 }
 
+// todo sort this list
 const thingsList: ThingsList = {
     things: [
         { id: 8975, name: "tree" },
@@ -28,9 +30,12 @@ const Listing: FC<ThingsList> = () => {
         <li key={thing.id}>{thing.name}</li>
     );
     return (
-        <ul>
+        <>
+        <p>Here is your list:</p>
+        <ul className="list-decimal list-inside">
             {list}
         </ul>
+        </>
     );
 };
 
