@@ -10,10 +10,12 @@ const App = () => {
   // type is implicitly bool, return type on function is implicitly bool
   const [showList, setShowList] = useState(false);
 
+  // TODO: pass event?
   const handleClickShow = () => {
     console.debug("Click:","handleClickShow");
     setShowList(!showList);
   }
+  // TODO: pass event?
   const handleClickSort = () => {
     console.debug("Click:","handleClickSort");
     // TODO: sort logic should happen on Listing component || move list to store
