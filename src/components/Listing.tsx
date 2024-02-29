@@ -47,7 +47,7 @@ let checkShowList = (showList: boolean = false) => {
 
 // this does not use props, instead uses the object declared in this functional component
 const Listing: FC<ThingsList> = ({ showList }) => {
-
+    console.info("render Listing");
     return (
         <>
             {checkShowList(showList)}

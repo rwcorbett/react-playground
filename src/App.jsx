@@ -6,6 +6,7 @@ import ButtonSort from "./components/ButtonSort";
 
 // this is implicitly typed as a React.JSX.Element,
 const App = () => {
+  console.info("render App");
 
   // type is implicitly bool, return type on function is implicitly bool
   const [showList, setShowList] = useState(false);
@@ -27,6 +28,7 @@ const App = () => {
       <main>
         <ButtonShowHide showList={showList} handleClick={handleClickShow} />
         <ButtonSort showList={showList} handleClick={handleClickSort} />
+        {/* TODO: create better conditional render for this - it is not required until button click */}
         <Listing showList={showList} className="p-11" />
       </main>
     </>

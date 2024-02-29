@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import Logo from "./Logo";
 
 // type HeaderProps = {
@@ -14,7 +14,8 @@ interface HeaderProps {
 // }
 
 // this is implicitly typed as a React.JSX.Element, here is changed to a FunctionalComponent with `title` exposed as prop
-const Header: FC<HeaderProps> = ({ title = "Default Title" }: HeaderProps) => {
+const HeaderComp: FC<HeaderProps> = ({ title = "Default Title" }: HeaderProps) => {
+    console.info("render Header");
     return (
         <header className="flex flex-row bg-gray-100">
             <h1 className="flex-auto font-sans text-3xl text-cyan-950">{title}</h1>
@@ -23,5 +24,7 @@ const Header: FC<HeaderProps> = ({ title = "Default Title" }: HeaderProps) => {
         </header>
     )
 }
-
+// export default Header;
+// can memoize this since it does not accept new props and does not need to re-render, this gains memory and processing savings
+const Header = memo(HeaderComp);
 export default Header;

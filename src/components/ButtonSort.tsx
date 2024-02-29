@@ -12,6 +12,7 @@ const ButtonSort: FC<SortButton> = ({
     showList,
     handleClick
 }) => {
+    console.info("render ButtonSort");
     return (
         <>
         { showList && <button className="btnDefault" onClick={handleClick} >{btnText}</button> }

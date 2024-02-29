@@ -12,6 +12,7 @@ const ButtonShowHide: FC<ListButton> = ({
     showList,
     handleClick
 }) => {
+    console.info("render ButtonShowHide");
     return (
         <button className={"btnDefault " + (showList ? 'is-showing' : 'not-showing')} onClick={handleClick} >{showList ? btnText = "Hide List" : btnText = "Show List"}</button>
     )
