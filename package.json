@@ -4,7 +4,7 @@
   "description": "React Skeleton - as bare bones as I can make it",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"TODO: add tests - Jest/Vite\" && exit 1",
     "dev": "vite --open --port 8787",
     "build": "vite build",
     "preview": "vite preview"
