@@ -33,7 +33,7 @@ const Listing: FC<ListingProps> = ({ showList }) => {
     console.info("render Listing");
     const [list, setList] = useState(thingsList);
 
-    let DisplayList = () => {
+    const DisplayList = () => {
         return (
             <>
                 <p>Here is a list:</p>
@@ -42,6 +42,8 @@ const Listing: FC<ListingProps> = ({ showList }) => {
                         <li>{t.name} <code>{t.id}</code></li>
                     ))}
                 </ul>
+                <ButtonSort handleClick={handleSortById} btnText="Sort by id" />
+                <ButtonSort handleClick={handleSortByName} btnText="Sort by name" />
             </>
         );
     };
@@ -64,11 +66,12 @@ const Listing: FC<ListingProps> = ({ showList }) => {
 
     return (
         <>
-            {showList &&
+            {showList ? (
                 <DisplayList />
+            ) : (
+                <p>The list is hidden.</p>
+            )
             }
-            <ButtonSort showList={showList} handleClick={handleSortById} btnText="Sort by id" />
-            <ButtonSort showList={showList} handleClick={handleSortByName} btnText="Sort by name" />
         </>
     );
 };

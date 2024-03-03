@@ -21,9 +21,8 @@ const App = () => {
     <>
       <Header title="Playground App" />
       <main>
-        <ButtonShowHide showList={showList} handleClick={handleClickShow} />
-        {/* TODO: create better conditional render for this - it is not required until button click */}
         <Listing showList={showList} className="p-11" />
+        <ButtonShowHide showList={showList} handleClick={handleClickShow} />
         <hr />
         <SuspendMe />
       </main>
