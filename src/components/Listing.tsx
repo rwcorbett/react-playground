@@ -1,56 +1,74 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+import ButtonSort from "./ButtonSort";
 
 /* use a type? or an interface? see: https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example/#useful-table-for-types-vs-interfaces */
-// type thing = {
+// type Thing = {
 //     name: string,
 //     id: number,
 // }
-interface thing {
+interface Thing {
     id: number;
     name: string;
 }
 
-interface ThingsList {
-    things: thing[];
-    showList?: boolean;
+interface ListingProps {
+    showList: boolean;
 }
 
-// TODO: sort this list
-const thingsList: ThingsList = {
-    things: [
-        { id: 8975, name: "tree" },
-        { id: 1358, name: "rock" },
-        { id: 6811, name: "coffee" },
-        { id: 3625, name: "lamp" }
-    ]
-};
+const thingsList: Thing[] = [
+    { id: 8975, name: "tree" },
+    { id: 9375, name: "apple" },
+    { id: 1358, name: "rock" },
+    { id: 6811, name: "coffee" },
+    { id: 3625, name: "lamp" },
+    { id: 6255, name: "zebra" }
+];
 
-let checkShowList = (showList: boolean = false) => {
-    const list = thingsList.things.map((thing) =>
-        <li key={thing.id}>{thing.name}</li>
-    );
-    let listMsg;
-    if (showList) {
-        listMsg = (
+/**
+ * list component, display the list and render a button
+ * @prop showList: state of list
+ * @returns React FC
+ */
+const Listing: FC<ListingProps> = ({ showList }) => {
+    console.info("render Listing");
+    const [list, setList] = useState(thingsList);
+
+    let DisplayList = () => {
+        return (
             <>
                 <p>Here is a list:</p>
                 <ul className="list-decimal list-inside">
-                    {list}
+                    {list.map((t: Thing) => (
+                        <li>{t.name} <code>{t.id}</code></li>
+                    ))}
                 </ul>
             </>
-        )
-    } else {
-        listMsg = (<p> No list.</p>)
-    }
-    return listMsg;
-}
+        );
+    };
 
-// this does not use props, instead uses the object declared in this functional component
-const Listing: FC<ThingsList> = ({ showList }) => {
-    console.info("render Listing");
+    const handleSortById = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        console.debug("Click:", "handleSortById");
+        let newList = [...thingsList];
+        newList.sort((a, b) => { return a.id - b.id });
+        setList(newList);
+    };
+
+    const handleSortByName = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        console.debug("Click:", "handleSortById");
+        let newList = [...thingsList];
+        newList.sort((a, b) => { return a.name.localeCompare(b.name) });
+        setList(newList);
+    };
+
     return (
         <>
-            {checkShowList(showList)}
+            {showList &&
+                <DisplayList />
+            }
+            <ButtonSort showList={showList} handleClick={handleSortById} btnText="Sort by id" />
+            <ButtonSort showList={showList} handleClick={handleSortByName} btnText="Sort by name" />
         </>
     );
 };

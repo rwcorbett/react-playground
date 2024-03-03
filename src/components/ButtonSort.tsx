@@ -8,7 +8,7 @@ interface SortButton {
 }
 
 const ButtonSort: FC<SortButton> = ({
-    btnText = "Sort",
+    btnText,
     showList,
     handleClick
 }) => {
