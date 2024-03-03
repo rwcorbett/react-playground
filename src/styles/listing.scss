@@ -1,0 +1,19 @@
+.listing {
+    width: 50vw;
+    background-color: antiquewhite;
+    padding: 1rem;
+    border-radius: $borderRadius;
+    margin: 0.2rem;
+
+    p {
+        font-weight: 800;
+    }
+
+    ul {
+        li {
+            margin: 0.2rem;
+            background-color: aliceblue;
+            border-radius: $borderRadius;
+        }
+    }
+}

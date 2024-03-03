@@ -39,7 +39,7 @@ const Listing: FC<ListingProps> = ({ showList }) => {
                 <p>Here is a list:</p>
                 <ul className="list-decimal list-inside">
                     {list.map((t: Thing) => (
-                        <li>{t.name} <code>{t.id}</code></li>
+                        <li key={t.id}>{t.name} <code>{t.id}</code></li>
                     ))}
                 </ul>
                 <ButtonSort handleClick={handleSortById} btnText="Sort by id" />
@@ -65,14 +65,14 @@ const Listing: FC<ListingProps> = ({ showList }) => {
     };
 
     return (
-        <>
+        <div className="listing">
             {showList ? (
                 <DisplayList />
             ) : (
                 <p>The list is hidden.</p>
             )
             }
-        </>
+        </div>
     );
 };
 
