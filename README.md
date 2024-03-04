@@ -19,4 +19,8 @@ Vite already transpile TS: [Vite docs](https://vitejs.dev/guide/features.html#ty
 
 ##  Sass
 
-`npm add -D sass`
+`npm install -D sass`
+
+## WebVitals
+
+`npm install -D web-vitals`
