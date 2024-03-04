@@ -4,6 +4,7 @@ import Listing from "./components/Listing";
 import ListingSkeleton from "./components/ListingSkeleton";
 import ButtonShowHide from "./components/ButtonShowHide";
 import SuspendMe from "./components/SuspendMe";
+import Counter from "./components/Counter";
 
 // this is implicitly typed as a React.JSX.Element,
 const App = () => {
@@ -22,12 +23,19 @@ const App = () => {
     <>
       <Header title="Playground App" />
       <main>
+
+        <hr />
+        <Counter />
+
+        <hr />
         <ButtonShowHide showList={showList} handleClick={handleClickShow} />
-        {showList ? (
+        {
+        showList ? (
           <Listing />
         ) : (
           <ListingSkeleton />
-        )}
+        )
+        }
 
         <hr />
         <SuspendMe />
