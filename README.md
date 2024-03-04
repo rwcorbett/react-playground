@@ -20,10 +20,3 @@ Vite already transpile TS: [Vite docs](https://vitejs.dev/guide/features.html#ty
 ##  Sass
 
 `npm add -D sass`
-
-## Jest
-
-[Testing-Library: React](https://github.com/testing-library/react-testing-library)
-
-`npm install -D @testing-library/react @testing-library/jest-dom @testing-library/react jest ts-jest @types/jest`
-ts-node

@@ -3,7 +3,6 @@
       "target": "esnext",
       "lib": ["dom", "esnext"],
       "jsx": "react",
-      "allowJs": true,
       "module": "esnext",
       "moduleResolution": "node",
       "isolatedModules": true,
@@ -12,5 +11,5 @@
       "strict": true,
       "skipLibCheck": true
     },
-    "include": ["./src/**/*", "jest.config.ts"]
+    "include": ["./src/**/*"]
   }

@@ -11,13 +11,27 @@ interface Thing {
     name: string;
 }
 
+interface ListingSkelProps {
+    showList: boolean;
+}
+
+const thingsList: Thing[] = [
+    { id: 8975, name: "tree" },
+    { id: 9375, name: "apple" },
+    { id: 1358, name: "rock" },
+    { id: 6811, name: "coffee" },
+    { id: 3625, name: "lamp" },
+    { id: 6255, name: "zebra" }
+];
+
 /**
  * list component, display the list and render a button
  * @prop showList: state of list
  * @returns React FC
  */
-const ListingSkeleton: FC<{}> = () => {
+const ListingSkeleton: FC<ListingSkelProps> = ({ showList }) => {
     console.info("render Listing");
+    const [list, setList] = useState(thingsList);
 
     const DisplayListSkel = () => {
         return (
