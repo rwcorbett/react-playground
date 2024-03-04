@@ -22,7 +22,7 @@ const App = () => {
     <>
       <Header title="Playground App" />
       <main>
-        <ButtonShowHide showList={showList} handleClick={handleClickShow} />
+        <ButtonShowHide btnText="Show/Hide" showList={showList} handleClick={handleClickShow} />
         {showList ? (
           <Listing />
         ) : (
