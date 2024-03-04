@@ -1,6 +1,11 @@
 $borderRadius: 7px;
 $defaultMargin: 0.2rem;
 
+$skeletonGrey1: #cecece;
+$skeletonGrey2: #ebebeb;
+
+@import './mixins.scss';
+
 @import './buttons.scss';
 @import './listing.scss';
-
+@import './suspense.scss';

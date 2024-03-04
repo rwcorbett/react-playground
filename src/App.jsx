@@ -1,6 +1,7 @@
-import React, { FC, useState } from "react";
+import React, { Suspense, useState } from "react";
 import Header from "./components/Header";
 import Listing from "./components/Listing";
+import ListingSkeleton from "./components/ListingSkeleton";
 import ButtonShowHide from "./components/ButtonShowHide";
 import SuspendMe from "./components/SuspendMe";
 
@@ -21,8 +22,13 @@ const App = () => {
     <>
       <Header title="Playground App" />
       <main>
-        <Listing showList={showList} className="p-11" />
         <ButtonShowHide showList={showList} handleClick={handleClickShow} />
+        {showList ? (
+          <Listing />
+        ) : (
+          <ListingSkeleton />
+        )}
+
         <hr />
         <SuspendMe />
       </main>

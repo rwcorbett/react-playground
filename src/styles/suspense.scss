@@ -1,0 +1,6 @@
+.suspense {
+    .skeleton {
+        background-color: antiquewhite;
+        @include skeltonAnimation(0.2, 0.5);
+    }
+}

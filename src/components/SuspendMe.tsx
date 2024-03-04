@@ -42,10 +42,10 @@ function wrapPromise(promise: Promise<{}>) {
 const resource = fetchData();
 
 function Loading() {
-    return <p className="p-3">🌀 Loading...</p>;
+    return <p className="p-3 skeleton">🌀 Loading...</p>;
 }
 
-function DataFetching() {
+function DataFetched() {
     const data = resource.read();
     console.info("response object:", data);
     return (
@@ -57,12 +57,12 @@ function DataFetching() {
 
 function SuspendMe() {
     return (
-        <>
+        <div className="suspense">
             <p>Suspense Example:</p>
             <Suspense fallback={<Loading />}>
-                <DataFetching />
+                <DataFetched />
             </Suspense>
-        </>
+        </div>
     );
 }
 export default SuspendMe;

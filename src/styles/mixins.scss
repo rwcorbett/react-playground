@@ -1,0 +1,17 @@
+@mixin skeltonAnimation($lowOpacity: 0.3, $highOpacity: 0.9) {
+    @keyframes pulse {
+        0% {
+            opacity: $lowOpacity;
+        }
+
+        50% {
+            opacity: $highOpacity;
+        }
+
+        100% {
+            opacity: $lowOpacity;
+        }
+    }
+
+    animation: pulse 3s infinite;
+}

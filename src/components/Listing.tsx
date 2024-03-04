@@ -11,10 +11,6 @@ interface Thing {
     name: string;
 }
 
-interface ListingProps {
-    showList: boolean;
-}
-
 const thingsList: Thing[] = [
     { id: 8975, name: "tree" },
     { id: 9375, name: "apple" },
@@ -29,13 +25,13 @@ const thingsList: Thing[] = [
  * @prop showList: state of list
  * @returns React FC
  */
-const Listing: FC<ListingProps> = ({ showList }) => {
+const Listing: FC<{}> = () => {
     console.info("render Listing");
     const [list, setList] = useState(thingsList);
 
     const DisplayList = () => {
         return (
-            <>
+            <div>
                 <p>Here is a list:</p>
                 <ul className="list-decimal list-inside">
                     {list.map((t: Thing) => (
@@ -44,7 +40,7 @@ const Listing: FC<ListingProps> = ({ showList }) => {
                 </ul>
                 <ButtonSort handleClick={handleSortById} btnText="Sort by id" />
                 <ButtonSort handleClick={handleSortByName} btnText="Sort by name" />
-            </>
+            </div>
         );
     };
 
@@ -66,12 +62,7 @@ const Listing: FC<ListingProps> = ({ showList }) => {
 
     return (
         <div className="listing">
-            {showList ? (
-                <DisplayList />
-            ) : (
-                <p>The list is hidden.</p>
-            )
-            }
+            <DisplayList />
         </div>
     );
 };

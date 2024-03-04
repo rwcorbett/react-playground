@@ -33,10 +33,10 @@ const ListingSkeleton: FC<ListingSkelProps> = ({ showList }) => {
     console.info("render Listing");
     const [list, setList] = useState(thingsList);
 
-    const DisplayList = () => {
+    const DisplayListSkel = () => {
         return (
             <>
-                <p></p>
+                <p>... loading - click to show.</p>
                 <ul className="list-decimal list-inside">
                     {[1, 2, 3, 4, 5].map((i: number) => (
                         <li key={i}><code></code></li>
@@ -47,8 +47,8 @@ const ListingSkeleton: FC<ListingSkelProps> = ({ showList }) => {
     };
 
     return (
-        <div className="listing">
-            {!showList && <DisplayList />}
+        <div className="listing skeleton">
+            <DisplayListSkel />
         </div>
     );
 };
