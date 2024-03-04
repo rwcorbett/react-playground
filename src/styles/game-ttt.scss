@@ -18,11 +18,22 @@ $cell-space: 5px;
             margin: $cell-space - 1;
             border: 1px solid black;
             background-color: azure;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-            code {
-                color: aquamarine;
-                pointer-events: none;
-            }
+            // code {
+            //     color: aquamarine;
+            //     pointer-events: none;
+            //     font-size: smaller;
+            //     position: absolute;
+            //     bottom: 0;
+            // }
+
+            // input[type="text"] {
+            //     width: 2rem;
+            // }
         }
     }
 }
