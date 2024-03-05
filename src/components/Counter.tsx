@@ -10,10 +10,11 @@ const Counter = () => {
     }
 
     useEffect(() => {
-        const getLastCount = parseInt(sessionStorage.getItem('totalCount') ?? '0');
+        // sessionStorage will persist until browser window closes, local will stay in browser
+        const getLastCount = parseInt(localStorage.getItem('totalCount') ?? '0');
         const newCount = count + getLastCount;
         console.info(`storing new totalCount: ${count} + ${getLastCount} = ${newCount} `);
-        sessionStorage.setItem('totalCount', newCount.toString());
+        localStorage.setItem('totalCount', newCount.toString());
     }, [totalCount])
 
     return (
