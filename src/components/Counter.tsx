@@ -17,6 +17,12 @@ const Counter = () => {
         localStorage.setItem('totalCount', newCount.toString());
     }, [totalCount])
 
+    useEffect(() => {
+        const getLastCount = parseInt(localStorage.getItem('totalCount') ?? '0');
+        console.info('get lastCount', getLastCount);
+        // setTotalCount(getLastCount); //BUG: this is unsafe! this triggers the other fn to keep increasing the lastCount!
+    })
+
     return (
         <div className="counter">
             <p>Counter: {count} | Total hovers: {totalCount} </p>
